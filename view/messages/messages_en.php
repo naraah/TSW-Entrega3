@@ -1,0 +1,50 @@
+<?php
+//file: /view/messages/messages_en.php
+
+// empty array, no translation needed,
+// since keys are in english in the source code.
+$i18n_messages = array(
+  "Registro" => "Sing in",
+  "Registrar" =>"Sing in",
+  "Borrar" => "Delete",
+  "Entrar" => "Login",
+  "Aceptar" => "Accept",
+  "Alias" => "Alias",
+  "Contraseña" => "Password",
+  "Apellidos" => "Surname",
+  "Nombre" => "Name",
+  "Id.Nota" => "Id. Note",
+  "Autor" => "Author",
+  "Fecha" => "Date",
+  "Notas Publicadas" => "Published Notes",
+  "Notas compartidas" => "Shared Notes",
+  "Crear Nota" => "Create Note",
+  "Título" => "Title",
+  "Contenido" => "Content",
+  "Crear" => "Create",
+  "Limpiar" => "Clear",
+  "Editar" => "Edit",
+  "Ver Nota" => "View Note",
+  "Copyright 2017 FasVery. Todos los derechos reservados" => "Copyright 2017 FasVery. All rights reserved.",
+  "Menú" => "Menu",
+  "INICIO" => "START",
+  "VALIDACIÓN" => "VALIDATION",
+  "REGISTRARSE" => "REGISTRER",
+  "ENTRAR" => "ENTER",
+  "SALIR" => "EXIT",
+  "NOTAS" => "NOTES",
+  "NUEVA" => "NEW",
+  "LISTAR" => "LIST",
+  "AVISO: "."El usuario/contraseña no existe" => "NOTICE: "." The user/password not exits",
+  "El usuario" => "The user",
+  "se ha añadido correctamente." => "successfully added."
+  "El usuario ya existe" => "Username already exists",
+  "El usuario y/o la contraseña no existe en el sistema" => "Username and/or password not exists in system",
+  "No ha publicado ninguna nota" => "You haven't posted any notes",
+  "No han compartido notas" => "You haven't shared notes",
+  "Nota editada correctamente" => "Note successfully edit",
+  "Nota compartida correctamente" => "Note successfully share",
+  "Nota eliminada correctamente" => "Note successfully delete",
+  "ERROR: No se ha podido eliminar la nota" => "ERROR: The note could not be deleted"
+)
+?>

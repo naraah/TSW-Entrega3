@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	font-size: 16px;
+	font-family: 'Lato', Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif"
+}
+
+body {
+	background-color:#FFFFFF;
+}
+
+.container {
+	max-width: 500px;
+	height: auto;
+	margin: 2% auto;
+	padding-bottom: 1rem;
+}
+
+fieldset {
+	display: inline;
+	float: left;
+	border-style:double;
+	border-color: #8b008b;
+	border-width: 7px;
+}
+
+legend {/*solo lo capta en el html es un posible bug*/
+	text-align: center;
+}
+
+legend h1{
+	align-items: center;
+	color: #8b008b;
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+legend h1 span {
+	margin-right: 10px;
+}
+
+.formRegister{
+	padding: 0.2rem;
+	flex-direction:column;/*Cuando no hay espacio alinea las cajas de texto en columna*/
+	justify-content: center;/*Centra las cajas de texto aliniadas*/
+	text-align: center;
+	margin-bottom: 1px;
+	width: 100%;
+}
+
+.form{
+	margin-top: 40px;
+	margin-bottom: 40px;
+	margin-left: 35px;
+}
+
+.btnForm{
+	justify-content:space-around;/*mismo espacio de separacion entre botones*/
+	margin-top: 3rem;/*margen de los botones respecto de lo que hay encima*/
+	padding-bottom: 30px;
+}
+
+.inputTitulo{
+	display: block;
+	background-color:#EFEFEF;
+	padding: 0.5rem;
+	margin-left: 15px;
+	margin: 0.3rem;
+	width: 70%;
+	text-align: justify;
+	border: none;
+	border-bottom: solid #CCCCCC .2rem;
+	transition: all 0.5s;/*para ver una transicion al cambiar propiedades*/
+}
+
+.inputTitulo:focus {
+	border-bottom: solid #8b008b .2rem;
+}
+
+.inputContenido{
+	display: block;
+	background-color:#EFEFEF;
+	padding: 0.3rem;
+	margin-left: 15px;
+	margin: 0.3rem;
+	height: 200px;
+	width: 90%; 
+	resize: none;
+	text-align: justify;
+	border: none;
+	border-bottom: solid #CCCCCC .2rem;
+	transition: all 0.5s;/*para ver una transicion al cambiar propiedades*/
+}
+
+.inputContenido:focus {
+	border-bottom: solid #8b008b .2rem;
+}
+
+.input:focus {
+	border-bottom: solid #8b008b .2rem;
+}
+
+.btnSubmit, .btnReset{
+	background-color: #8b008b;
+	width: 65px;
+	height: 23px;
+	text-align: center;
+	color: #FFFFFF;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+.btnSubmit:hover, .btnReset:hover { /*hace que varie el color del boton al pasar el raton por encima*/
+	background-color: #F500F5;
+}

@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+* {/*Elimina los margenes que meten los navegadores por defecto*/
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+header {
+	width: 100%;
+	height:100%;
+	text-align:left;
+	background:#FFFFFF;
+	background-color: #FFFFFFF;
+	margin-bottom: 0px;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+section {
+	width:100%;
+	background-image:url("../view/Images/fondoLogoClaro.png");
+	background-attachment: fixed;
+	min-height: 595px;
+}
+
+footer {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	color: #FFFFFF;
+    background-color: #8b008b;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+}
+
+.menuBar {/*Icono y titulo del boton del menu oculto se mostrara en pantallas pequeñas*/
+	display:none;
+}
+
+.menuGeneral {
+	width:100%;
+	max-width: 100%;
+	background: #8b008b;
+	overflow:hidden;
+	list-style: none;/*elimina los puntos de las listas del menu*/
+	text-align: center;
+	z-index: 1000;/*se posiciona el menu por encima de los demas elementos*/
+}
+
+.menuGeneral li{/*permite que los menusGenerales de pongan al lado unos de otros*/
+	display:inline-block;
+	text-align: center;
+	position:relative;
+}
+
+.menuGeneral li a {
+	padding: 5px;
+	color: #FFFFFF;
+	display:block;
+	text-decoration: none;
+	margin-right: 30px;/*margenes para que quede bien centrado*/
+	margin-left: 30px;
+}
+
+.menuGeneral li span {/*espacio entre el icono y el texto de los menus*/
+	margin-right:10px;
+}
+
+.menuGeneral li a span {/*margen de las flechas desplegables*/
+	margin-left: 2px;
+}
+
+.menuGeneral li ul li{
+	display: none;/*no se muestran hasta pasar el raton por el menu padre*/
+	text-align: left;
+	margin-left: 30px;/*submenu centrado respecto al padre*/
+	background-color: #CA3EFF;
+	overflow:hidden;/*cuando hay desbordamiento no se muestra el scroll*/
+	z-index: 1000;
+}
+
+.menuGeneral li ul li a {
+	margin-left: 10px;
+	display: block;
+	border-bottom:dotted;
+	border-bottom-color: #FDAD01;
+}
+
+.menuGeneral li a:hover {/*efecto de pasar por encima con el raton cambia de color*/
+	background-color: #F500F5;
+}
+
+.menuGeneral li:hover > ul li{/*desplegar los subMenus*/
+	display: block;
+	height: auto;
+	z-index: 1000;
+	}
+
+.logo {
+	display:block;
+	margin:auto;
+}
+
+.hola {
+		margin-top: 600px;
+	}
+
+.btnVer:hover {
+	background-color: #ff93ff;
+}
+
+.btnEditar:hover {
+	background-color: #ff93ff;
+}
+
+.btnCompartir:hover {
+	background-color: #ff93ff;
+}
+
+.btnEliminar:hover {
+	background-color: #ff93ff;
+}
+
+@media screen and (max-width : 576px ){/*cambia de modo el menu*/
+
+	header {
+		position:fixed;
+		height: auto;
+	}
+
+	section{
+		min-height: 595px;
+	}
+
+
+
+	.logo {
+		display:block;
+		margin:auto;
+  		width: 400px;
+		height: auto;
+		top:0%;
+	}
+
+	.formRegister, .formCompartirNota2, .formCrearNota, .formEditarNota, .formListarNota{
+		margin-top: 140px;
+	}
+
+	.formCompartirNota {
+		margin-top: 20px;
+	}
+
+	.menuBar {
+		display: block;
+		width: 100%;
+	}
+
+	.btnMenu{
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		background-color: #8b008b;
+		color: #FFFFFF;
+		font-size: 30px;
+		font-weight:bold;/*visualiza la fuente ancha*/
+		text-decoration: underline;
+	}
+
+	.btnMenu span {/*Icono del menu*/
+		float: right;
+		font-size: 40px;
+		margin-right: 10px;
+		margin-left: 30px;
+	}
+
+	nav {
+		display: none;
+		position: fixed;
+		rigth: 100%;
+		width: 70%;
+		height: 300px;
+	}
+
+	.menuGeneral {
+		display: block;
+		width: 100%;
+	}
+
+	.menuGeneral li {
+		display: block;
+		text-align: left;
+		border-bottom: 30px solid #8b008b;
+		height: 100%;
+		width: 180px;
+	}
+
+	.menuGeneral li ul li{
+		border-bottom: 0px;
+		width: 160px;
+		position: relative;
+	}
+
+	.btnMenu:hover >header nav {
+		display: block;
+	}
+
+}
+
+@media screen and (max-width : 466px ){
+
+	.logo {
+		display:block;
+		margin:auto;
+  		width: 400px;
+		height: auto;
+		top:0%;
+		position: relative;
+	}
+
+	.formRegister, .formCompartirNota2, .formCrearNota, .formEditarNota, .formListarNota {
+		margin-top: 140px;
+		margin-bottom: 60px;
+	}
+
+	.formCompartirNota {
+		margin-top: 20px;
+	}
+
+	header {
+		position:fixed;
+		height: auto;
+	}
+
+	#contenedor {
+		margin-bottom: 0px;
+	}
+
+}
+
+@media screen and (max-width: 430px) {
+
+	.logo {
+		display:block;
+		margin:auto;
+		width: 290px;
+		height: 100%;
+		top:0%;
+	}
+
+	.formRegister, .formCompartirNota2, .formCrearNota, .formEditarNota, .formListarNota{
+		margin-top: 110px;
+		margin-bottom: 60px;
+	}
+
+	.formCompartirNota {
+		margin-top: 20px;
+	}
+
+}
