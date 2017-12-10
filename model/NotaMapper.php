@@ -4,7 +4,7 @@ require_once(__DIR__."/../core/PDOConnection.php");
 require_once(__DIR__."/../model/Nota.php");
 
 class NotaMapper {
-	
+
 	private $db;
 	/**
 	* El contructor obtiene la conexion con la base de datos del core
@@ -12,9 +12,9 @@ class NotaMapper {
 	public function __construct() {
 		$this->db = PDOConnection::getInstance();
 	}
-	
+
 	/**save
-	* Añade una nueva nota a la bbdd
+	* Aï¿½ade una nueva nota a la bbdd
 	**/
 	public function save($note) {
 		$stmt = $this->db->prepare("SELECT idUsuario FROM usuario WHERE alias=?");
@@ -35,15 +35,15 @@ class NotaMapper {
 			$stmt->execute(array($idNota));
 			$stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			$nota=$stmt["0"];
-			return $nota=new Nota($nota["idNota"],$nota["titulo"],$nota["contenido"],$nota["fecha"],$nota["fk_idUsuario"]);//devuelvo la única nota con ese id
+			return $nota=new Nota($nota["idNota"],$nota["titulo"],$nota["contenido"],$nota["fecha"],$nota["fk_idUsuario"]);//devuelvo la ï¿½nica nota con ese id
 			}
 			return NULL;
 		}
-	
+
 	/*listNote
 	* Obtiene una lista con las notas publicadas de ese usuario
-	* Controla el tamaño del formulario para que no se desajuste el titulo en el legend
-	* No se ha creado en un .js aparte por que sólo para eso no merecía la pena crear un .js
+	* Controla el tamaï¿½o del formulario para que no se desajuste el titulo en el legend
+	* No se ha creado en un .js aparte por que sï¿½lo para eso no merecï¿½a la pena crear un .js
 	*/
 	public function listNote(){
 		$stmt = $this->db->prepare("SELECT idUsuario FROM usuario WHERE alias=?");
@@ -56,12 +56,12 @@ class NotaMapper {
 		$notas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$listaNotas=array();//lista con notas para ese usuario
 		foreach($notas as $nota){
-			if(strlen($nota["titulo"])>13){//para que no se desajuste el tamaño de formulario
+			if(strlen($nota["titulo"])>13){//para que no se desajuste el tamaï¿½o de formulario
 				$titulo=substr($nota["titulo"], 0, 10)."...";
 			}else{
 				$titulo=$nota["titulo"];
 			}
-			array_push($listaNotas, new Nota($nota["idNota"],$titulo, $nota["contenido"], $nota["fecha"],$nota["fk_idUsuario"], $_SESSION["currentuser"]));
+			array_push($listaNotas, new Nota($nota["idNota"],$titulo["titulo"], $nota["contenido"], $nota["fecha"],$nota["fk_idUsuario"], $_SESSION["currentuser"]));
 		}
 		return $listaNotas;
 	}
@@ -79,7 +79,7 @@ class NotaMapper {
 			$stmt->execute(array(intval($id["fk_idNota"])));
 			$compartida=$stmt->fetchAll(PDO::FETCH_ASSOC);
 			$compartida=$compartida["0"];//nota compartida con todos sus datos
-			if(strlen($compartida["titulo"])>13){//para que no se desajuste el tamaño de formulario
+			if(strlen($compartida["titulo"])>13){//para que no se desajuste el tamaï¿½o de formulario
 				$titulo=substr($compartida["titulo"], 0, 10)."...";
 			}else{
 				$titulo=$compartida["titulo"];
@@ -91,7 +91,7 @@ class NotaMapper {
 
 	/*editar
 	* Permite editar el titulo y el contenido de una nota
-	* No se podrá editar la fecha, el autor o el id
+	* No se podrï¿½ editar la fecha, el autor o el id
 	* Es necesario que la nota exista y seamos el autor
 	*/
 	public function editar($nota){
@@ -115,7 +115,7 @@ class NotaMapper {
 		}
 		return false;
 	}
-	
+
 	/*drop
 	* Elimina una nota en la bbdd
 	* Es necesario ser el autor
@@ -143,7 +143,7 @@ class NotaMapper {
 		$autor=$stmt["0"];
 		return $autor["alias"];
 	}
-	
+
 	/**noteExists
 	* comprueba si la nota existe
 	**/
@@ -158,9 +158,9 @@ class NotaMapper {
 
 	/*permisoNota
 	* Es una funcion privada
-	* Sólo se llama desde la propia clase
+	* Sï¿½lo se llama desde la propia clase
 	* Devuelve true si el autor de una nota es el actual
-	* Es necesario estar logeado en el sistema si no se dará por supuesto que no es el autor
+	* Es necesario estar logeado en el sistema si no se darï¿½ por supuesto que no es el autor
 	*/
 	private function permisoNota($idNota){
 		if(isset($_SESSION["currentuser"])){
