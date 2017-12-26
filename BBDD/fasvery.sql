@@ -118,7 +118,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `compartida`
   ADD CONSTRAINT `compartida_ibfk_1` FOREIGN KEY (`fk_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `compartida_ibfk_2` FOREIGN KEY (`fk_idNota`) REFERENCES `nota` (`idNota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `compartida_ibfk_2` FOREIGN KEY (`fk_idNota`) REFERENCES `nota` (`idNota`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `nota`

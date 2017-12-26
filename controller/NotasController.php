@@ -33,13 +33,12 @@ class NotasController extends BaseController {
 				$note = new Nota();
 				$note->setTitulo($_POST["titulo"]);
 				$note->setContenido($_POST["contenido"]);
-				//$note->setFecha(getdate());
 				try{
 					$errors = array();
 					if($_SESSION["currentuser"]){
 						$this->NotaMapper->save($note);
 					}else{
-						$errors["username"] = "El usuario y/o la contraseña no existe en el sistema";
+						$errors["username"] = "Username and/or password not exists in system";
 						$this->view->setFlash("errors: ".$errors["username"]);
 					}
 				}catch(ValidationException $ex){
@@ -85,9 +84,9 @@ class NotasController extends BaseController {
 				//se tratan las notas que he creado
 				$listaCreadas=$this->NotaMapper->listNote();
 				if ($listaCreadas == NULL) {
-					$this->view->setVariable("creadas","No ha publicado ninguna nota");//se muestra que no hay notas publicadas
+					$this->view->setVariable("creates","You haven't posted any notes");//se muestra que no hay notas publicadas
 				}else{
-					$this->view->setVariable("creadas","");//no se muestra ningun mensaje
+					$this->view->setVariable("creates","");//no se muestra ningun mensaje
 					$this->view->setVariable("currentuser", $_SESSION["currentuser"]);
 					$this->view->setVariable("listaCreadas", $listaCreadas);
 				}
@@ -95,7 +94,7 @@ class NotasController extends BaseController {
 				$usuarioMapper = new UsuarioMapper();
 				$listaCompartidas=$this->NotaMapper->listShare($usuarioMapper->getIdByAlias($_SESSION["currentuser"]));
 				if ($listaCompartidas == NULL) {
-					$this->view->setVariable("compartidas","No han compartido notas");//se muestra que no hay notas publicadas
+					$this->view->setVariable("share","You haven't posted any notes");//se muestra que no hay notas publicadas
 				}else{
 					$this->view->setVariable("compartidas","");//no se muestra ningun mensaje
 					$this->view->setVariable("listaCompartidas", $listaCompartidas);
@@ -112,8 +111,8 @@ class NotasController extends BaseController {
 		if(self::logeado()){
 			if(isset($_POST["idNota"]) && isset($_POST["titulo"]) && isset($_POST["contenido"])){
 				$this->NotaMapper->editar(new Nota($_POST["idNota"],$_POST["titulo"],$_POST["contenido"]));
-				$this->view->setFlash("Nota editada correctamente");
-				self::listarNotas();
+				$this->view->setFlash("Note successfully edit");
+				$this->view->redirect("Notas","listarNotas");
 			}
 			$this->view->setVariable("nota",$this->NotaMapper->getNoteByID($_GET["idNota"]));
 			$this->view->setVariable("alias",$_SESSION["currentuser"]);
@@ -128,15 +127,20 @@ class NotasController extends BaseController {
 	public function compartir(){
 		$usuarioMapper = new UsuarioMapper();//se usa para obtener la lista de alias
 		if(self::logeado()){
-			if(isset($_POST["idNota"]) && isset($_POST['listaAlias']) ){
+			if(isset($_POST["idNota"]) && isset($_POST['listaAlias'])){
 				foreach ($_POST['listaAlias'] as $alias) {
 					$this->NotaMapper->compartir($usuarioMapper->getIdByAlias($alias),$_POST["idNota"]);
 				}
-				$this->view->setFlash("Nota compartida correctamente");
-				self::listarNotas();
+				$this->view->setFlash("Note successfully share");
+				$this->view->redirect("Notas","listarNotas");
+			}
+			$listaAlias=$usuarioMapper->getAliasCompartirNota($_GET["idNota"]);
+			if(empty($listaAlias)){
+				$this->view->setFlash("No users are available to share that note");
+				$this->view->redirect("Notas","listarNotas");
 			}
 			//Cargamos el formulario con la nota y la lista de alias para compartirla
-			$this->view->setVariable("listaAlias",$usuarioMapper->getAlias());
+			$this->view->setVariable("listaAlias",$listaAlias);
 			$this->view->setVariable("nota",$this->NotaMapper->getNoteByID($_GET["idNota"]));
 			$this->view->setVariable("alias",$_SESSION["currentuser"]);
 			$this->view->render("notes", "compartirNota");
@@ -150,11 +154,11 @@ class NotasController extends BaseController {
 	public function eliminarNotas(){
 		if(self::logeado()){
 			if(isset($_GET["idNota"]) && $this->NotaMapper->drop($_GET["idNota"])){
-				$this->view->setFlash("Nota eliminada correctamente");
+				$this->view->setFlash("Note successfully delete");
 			}else{
-				$this->view->setFlash("ERROR: No se ha podido eliminar la nota");
+				$this->view->setFlash("ERROR: The note could not be deleted");
 			}//Refresca la vista.
-			self::listarNotas();
+			$this->view->redirect("Notas","listarNotas");
 		}
 	}
 

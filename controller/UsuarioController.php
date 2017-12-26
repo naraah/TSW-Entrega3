@@ -28,7 +28,7 @@ class UsuarioController extends BaseController {
 					$_SESSION["currentuser"]=$_POST["alias"];
 					$this->view->redirect("Notas","listarNotas");
 				}else{
-					$this->view->setFlash("AVISO: "."El usuario/contraseña no existe");
+					$this->view->setFlash("NOTICE: "." The user/password not exits");
 				}
 		}
 		$this->view->render("users", "logIn");
@@ -46,11 +46,11 @@ class UsuarioController extends BaseController {
 					if (!$this->UsuarioMapper->userAliasExists($_POST["alias"])){
 						// save the User object into the database
 						$this->UsuarioMapper->save($user);
-						$this->view->setFlash("El usuario ".$user->getAlias()." se ha añadido correctamente.");
+						$this->view->setFlash("The user ".$user->getAlias()." successfully added.");
 						$this->view->redirect("Usuario", "login");
 					} else {
 						$errors = array();
-						$errors["username"] = "El usuario ya existe";
+						$errors["username"] = "Username already exists";
 						$this->view->setFlash("errors: ".$errors["username"]);
 					}
 				}catch(ValidationException $ex) {

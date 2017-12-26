@@ -59,7 +59,7 @@ CREATE TABLE `usuario` (
   `nombre` varchar(30) DEFAULT NULL,
   `apellidos` varchar(60) DEFAULT NULL,
   `alias` varchar(30) DEFAULT NULL,
-  `contraseña` varchar(30) DEFAULT NULL
+  `password` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

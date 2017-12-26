@@ -14,22 +14,22 @@
 				<header>
 					<img src="./view/Images/logo.png" class="logo">
 					<div id="menuBar" class="menuBar" onClick="mostrarMenu();">
-						<a href="#" class="btnMenu"><span class="icon-menu"></span><?= i18n("Menú")?></a>
+						<a href="#" class="btnMenu"><span class="icon-menu"></span><?= i18n("Menu")?></a>
 					</div>
 					<nav id="nav">
 						<ul class="menuGeneral">
-							<li><a href="index.php?controller=main&amp;action=index"><span class="icon-home4"></span><?= i18n("INICIO")?></a></li>
-							<li><a href="#"><span class="icon-enter"></span><?= i18n("VALIDACIÓN")?><span class="icon-arrow-submenu"></span></a>
+							<li><a href="index.php?controller=main&amp;action=index"><span class="icon-home4"></span><?= i18n("START")?></a></li>
+							<li><a href="#"><span class="icon-enter"></span><?= i18n("VALIDATION")?><span class="icon-arrow-submenu"></span></a>
 								<ul >
-									<li><a href="index.php?controller=Usuario&amp;action=register" ><span class="icon-user-check"></span><?= i18n("REGISTRARSE")?></a></li>
-									<li><a href="index.php?controller=Usuario&amp;action=login" ><span class="icon-sign-in"></span><?= i18n("ENTRAR")?></a></li>
-									<li><a href="index.php?controller=Usuario&amp;action=logout"><span class="icon-sign-out"></span><?= i18n("SALIR")?></a></li>
+									<li><a href="index.php?controller=Usuario&amp;action=register" ><span class="icon-user-check"></span><?= i18n("REGISTRER")?></a></li>
+									<li><a href="index.php?controller=Usuario&amp;action=login" ><span class="icon-sign-in"></span><?= i18n("ENTER")?></a></li>
+									<li><a href="index.php?controller=Usuario&amp;action=logout"><span class="icon-sign-out"></span><?= i18n("EXIT")?></a></li>
 								</ul>
 							</li>
-							<li><a href="#"><span class="icon-sticky-note"></span><?= i18n("NOTAS")?><span class="icon-arrow-submenu"></span></a>
+							<li><a href="#"><span class="icon-sticky-note"></span><?= i18n("NOTES")?><span class="icon-arrow-submenu"></span></a>
 								<ul>
-									<li><a href="index.php?controller=Notas&amp;action=nueva" ><span class="icon-profile"></span><?= i18n("NUEVA")?></a></li>
-									<li><a href="index.php?controller=Notas&amp;action=listarNotas"><span class="icon-list-ordered"></span><?= i18n("LISTAR")?></a></li>
+									<li><a href="index.php?controller=Notas&amp;action=nueva" ><span class="icon-profile"></span><?= i18n("NEW")?></a></li>
+									<li><a href="index.php?controller=Notas&amp;action=listarNotas"><span class="icon-list-ordered"></span><?= i18n("LIST")?></a></li>
 								</ul>
 							</li>
 						</ul>

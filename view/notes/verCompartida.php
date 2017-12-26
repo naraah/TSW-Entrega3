@@ -17,12 +17,12 @@ $alias=$view->getVariable("alias");
 			<div class="container">
 				<form class="formCrearNota" action="">
 					<fieldset>
-							<legend align="center"><h1><span class="icon-eye2"></span><?= i18n("Ver Nota")?></h1></legend>
+							<legend align="center"><h1><span class="icon-eye2"></span><?= i18n("View Note")?></h1></legend>
 							<div class="form">
 							<div class="formDatos">
-								<label class="labelId"><span class="icon-npm"></span><?= i18n("Id. Nota")?> <?=$nota->getIdNota()?></label>
-								<label class="labelAutor"><span class="icon-id-card"></span><?= i18n("Autor")?><?=$alias?></label>
-								<label class="labelFecha"><span class="icon-sun-o"></span><?= i18n("Fecha")?> <?=$nota->getFecha()?></label>
+								<label class="labelId"><span class="icon-npm"></span><?= i18n("Id. Note ")?> <?=$nota->getIdNota()?></label>
+								<label class="labelAutor"><span class="icon-id-card"></span><?= i18n("Author ")?><?=$alias?></label>
+								<label class="labelFecha"><span class="icon-sun-o"></span><?= i18n("Date ")?> <?=$nota->getFecha()?></label>
 								<input class="inputTitulo" type="text" placeholder="Título" readonly value="<?=$nota->getTitulo()?>">
 								<textarea class="inputContenido" type="text" readonly> <?= $nota->getContenido()?></textarea>
 					</fieldset>

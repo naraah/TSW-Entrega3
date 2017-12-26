@@ -46,7 +46,7 @@ function run() {
 		$controller->$actionName();
 	} catch(Exception $ex) {
 		//uniform treatment of exceptions
-		die("Se ha producido una excepcion".$ex->getMessage());
+		die("An exception occured!!!!!".$ex->getMessage());
 	}
 }
 /**

@@ -10,7 +10,7 @@ array(
 	"Password" => "Contraseña",
 	"Surname" => "Apellidos",
 	"Name" => "Nombre",
-	"Id- Note" => "Id. Nota",
+	"Id. Note" => "Id. Nota",
 	"Author" => "Autor",
   "Date" => "Fecha",
   "Published Notes" => "Notas Publicadas",
@@ -24,12 +24,14 @@ array(
   "View Note" => "Ver Nota",
   "Copyright 2017 FasVery. All rights reserved." =>"Copyright 2017 FasVery. Todos los derechos reservados",
   "Menu" => "Menú",
+	"Spanish" => "Español",
+	"English" => "Inglés",
   "START" => "INICIO",
   "VALIDATION" => "VALIDACIÓN",
   "REGISTRER" => "REGISTRARSE",
   "ENTER" => "ENTRAR",
   "EXIT" => "SALIR",
-  "NOTES" => "NOTES",
+  "NOTES" => "NOTAS",
   "NEW" => "NUEVA",
   "LIST" => "LISTAR",
   "NOTICE: "." The user/password not exits" => "AVISO: "."El usuario/contraseña no existe",
@@ -42,6 +44,7 @@ array(
   "Note successfully edit" => "Nota editada correctamente",
   "Note successfully share" => "Nota compartida correctamente",
   "Note successfully delete" => "Nota eliminada correctamente",
-  "ERROR: The note could not be deleted" => "ERROR: No se ha podido eliminar la nota"
+  "ERROR: The note could not be deleted" => "ERROR: No se ha podido eliminar la nota",
+	"No users are available to share that note" => "No hay usuarios disponibles para compartir esa nota"
 )
 ?>
