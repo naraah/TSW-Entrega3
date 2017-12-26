@@ -47,6 +47,13 @@ $i18n_messages = array(
   "Note successfully share" => "Note successfully share",
   "Note successfully delete" => "Note successfully delete",
   "ERROR: The note could not be deleted" => "ERROR: The note could not be deleted",
-	"No users are available to share that note" => "No users are available to share that note"
+	"No users are available to share that note" => "No users are available to share that note",
+  "no such note with id: " => "no such note with id: ",
+	"Shared Note \"%s\" successfully deleted." => "Shared Note \"%s\" successfully deleted.",
+	"Note with id " => "Note with id ",
+	" not found" => " not found",
+	"you are not the author of this note" => "you are not the author of this note",
+	"you can't unshared this. you are the author of this note" => "you can't unshared this. you are the author of this note",
+  "You are not authorized to login as anyone but you" => "You are not authorized to login as anyone but you"
 )
 ?>

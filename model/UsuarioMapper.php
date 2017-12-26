@@ -19,6 +19,21 @@ class UsuarioMapper {
 		$stmt->execute(array($user->getNombre(), $user->getApellidos(), $user->getAlias(), $user->getPassword()));
 	}
 	/**
+	* Seleciona el usuario que no tenga notas compartidas
+	*/
+	public function findAll(Usuario $user,$note) {
+        $stmt = $this->db->prepare("SELECT idUsuario,nombre,apellidos,alias FROM usuario WHERE alias!= ? AND idUsuario NOT IN (SELECT fk_idUsuario FROM compartida WHERE fk_idNota = ? )");
+        $stmt->execute(array($user->getUsername(),$note));
+        $users_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $users = array();
+
+        foreach ($users_db as $user) {
+            array_push($users, new Usuaeio($user["alias"], $user["idUsuario"], $user["nombre"],$user["apellidos"]));
+        }
+        return $users;
+    }
+	/**
 	*Elimina un usuario en la bbdd
 	**/
 	public function drop($user) {

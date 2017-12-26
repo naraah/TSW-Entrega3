@@ -45,6 +45,13 @@ array(
   "Note successfully share" => "Nota compartida correctamente",
   "Note successfully delete" => "Nota eliminada correctamente",
   "ERROR: The note could not be deleted" => "ERROR: No se ha podido eliminar la nota",
-	"No users are available to share that note" => "No hay usuarios disponibles para compartir esa nota"
+	"No users are available to share that note" => "No hay usuarios disponibles para compartir esa nota",
+	"no such note with id: " => "No se encuentra una nota con el id: ",
+	"Shared Note \"%s\" successfully deleted." => "La nota compartida \"%s\" se ha eliminado correctamente",
+	"Note with id " => "La nota con el id ",
+	" not found" => " no se ha encontrado",
+	"you are not the author of this note" => "No eres el autor de esta nota",
+	"you can't unshared this. you are the author of this note" => "no puedes dejar de compartir esto. No eres el autor de esta nota",
+	"You are not authorized to login as anyone but you" => "No estas autorizado a iniciar sesión como nadie más que tu"
 )
 ?>
