@@ -25,6 +25,9 @@ $listaAlias = $view->getVariable("listaAlias");
 								<input class="btnSubmit" type="submit" value="<?= i18n("Create")?>">
 								<input class="btnReset" type="reset" value="<?= i18n("Clear")?>">
 							</div>
+							<div class="btnForm">
+								 <a href="index.php?controller=Notas&amp;action=listarNotas"><input class="btnCancel" value="<?= i18n("Cancel")?>">
+							</div>
 					</fieldset>
 				</form>
 			</div>

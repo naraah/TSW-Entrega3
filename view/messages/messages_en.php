@@ -54,6 +54,7 @@ $i18n_messages = array(
 	" not found" => " not found",
 	"you are not the author of this note" => "you are not the author of this note",
 	"you can't unshared this. you are the author of this note" => "you can't unshared this. you are the author of this note",
-  "You are not authorized to login as anyone but you" => "You are not authorized to login as anyone but you"
+  "You are not authorized to login as anyone but you" => "You are not authorized to login as anyone but you",
+  "Cancel" => "Cancel"
 )
 ?>

@@ -110,10 +110,11 @@ class NotaMapper {
 	 * @throws PDOException if a database error occurs
 	 * @return void
 	 */
-	public function deleteCompartida(Nota $nota,Usuario $usuario) {
-			$stmt = $this->db->prepare("DELETE from compartida WHERE fk_idNota=? AND fk_idUsuario = (SELECT idUsuario FROM usuario WHERE nombre=?)");
-			$stmt->execute(array($nota->getIdNota(),$usuario->getNombre()));
+	public function deleteCompartida($idNota) {
+			$stmt = $this->db->prepare("DELETE from compartida WHERE fk_idNota=?");
+			$stmt->execute(array($idNota));
 	}
+	
 	/*compartir
 	* Permite compartir una nota con un usuario
 	* Es necesario que la nota exista y ser el propietario para poder compartirla

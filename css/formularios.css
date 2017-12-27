@@ -81,7 +81,7 @@ body {
 	height: 74%;
 	flex-direction:column;/*Cuando no hay espacio alinea las cajas de texto en columna*/
 	justify-content: center;/*Centra las cajas de texto aliniadas*/
-	
+
 }
 
 .formLogin {
@@ -193,7 +193,7 @@ legend h1 span {
 	margin-top: 10px;
 	margin-bottom: 15px;
 	height: 250px;
-	width: 90%; 
+	width: 90%;
 	resize: none;
 	border: none;
 	border-bottom: solid #CCCCCC .2rem;
@@ -229,7 +229,7 @@ textarea:focus{
 	margin-bottom: 20px;
 }
 
-.btnSubmit, .btnReset{
+.btnSubmit, .btnReset, .btnCancel{
 	background-color: #8b008b;
 	width: 65px;
 	height: 23px;

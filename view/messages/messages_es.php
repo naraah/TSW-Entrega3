@@ -52,6 +52,7 @@ array(
 	" not found" => " no se ha encontrado",
 	"you are not the author of this note" => "No eres el autor de esta nota",
 	"you can't unshared this. you are the author of this note" => "no puedes dejar de compartir esto. No eres el autor de esta nota",
-	"You are not authorized to login as anyone but you" => "No estas autorizado a iniciar sesión como nadie más que tu"
+	"You are not authorized to login as anyone but you" => "No estas autorizado a iniciar sesión como nadie más que tu",
+	"Cancel" => "Cancelar"
 )
 ?>

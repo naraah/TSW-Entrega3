@@ -186,26 +186,14 @@ class NotasController extends BaseController {
 */
 	public function deleteCompartida() {
 		if(self::logeado()){
-
-        // Get the Note object from the database
-        $idNota = $_REQUEST["idNota"];
-        $note = $this->notaMapper->getNoteByID($idNota);
-
-        // Does the note exist?
-        if ($note == NULL) {
-            throw new Exception("no such note with id: ".$idNota);
-        }
-
-        // Delete the Shared object from the database
-        $this->notaMapper->deleteCompartida($note,$this->currentUser);
-
-        $this->view->setFlash(sprintf(i18n("Shared Note \"%s\" successfully deleted."),$note ->getTitulo()));
-
-        // perform the redirection. More or less:
-        // header("Location: index.php?controller=note&action=index")
-        // die();
-        $this->view->redirect("Notas", "listarNotas");
-			}
+			if(isset($_GET["idNota"]) && $this->NotaMapper->deleteCompartida($_GET["idNota"])){
+				$this->view->setFlash("Note successfully delete");
+			}else{
+				$this->view->setFlash("ERROR: The note could not be deleted");
+			}//Refresca la vista.
+			$this->view->redirect("Notas","listarNotas");
+		}
+	}
     }
-}
+
 ?>

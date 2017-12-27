@@ -60,6 +60,8 @@ $compartidas = $view->getVariable("compartidas");
 									<div class="btnOpcionesNotas">
 										<a class="btnVer" href='./index.php?controller=Notas&amp;action=verNotaCompartida&amp;idNota=<?php echo $compartida->getIdNota() ?>'><span class="icon-eye2"></span>
 										</a>
+										<a class="btnEliminar" href='./index.php?controller=Notas&amp;action=deleteCompartida&amp;idNota=<?php echo $compartida->getIdNota() ?>'><span class="icon-trash"></span>
+										</a>
 									</div>
 							</fieldset>
 						</form>

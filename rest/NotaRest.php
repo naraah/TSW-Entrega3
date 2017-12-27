@@ -43,7 +43,7 @@ class NotaRest extends BaseRest {
 				"titulo" => $nota->getTitulo(),
 				"contenido" => $nota->getContenido(),
         "fecha" => $nota->getFecha(),
-				"usuario" => $nota->getAutor()
+				"fk_idUsuario" => $nota->getAutor()
 			));
 		}
 
@@ -51,30 +51,9 @@ class NotaRest extends BaseRest {
 		header('Content-Type: application/json');
 		echo(json_encode($posts_array));
 	}
-
-	public function getNotesShared() {
-		$currentUser = parent::authenticateUser();
-		$notas = $this->notaMapper->listShare($currentUser);
-		// json_encode Note objects.
-        // since Note objects have private fields, the PHP json_encode will not
-        // encode them, so we will create an intermediate array using getters and
-        // encode it finally
-        $notas_array = array();
-        foreach($notas as $nota) {
-            array_push($notas_array, array(
-							"idNota" => $nota->getIdNota(),
-							"titulo" => $nota->getTitle(),
-							"contenido" => $nota->getContent(),
-							"fecha" => $nota->getCreationDate(),
-							"author_id" => $nota->getAuthor()->getUsername()
-            ));
-        }
-
-				header($_SERVER['SERVER_PROTOCOL'].' 200 Ok');
-        header('Content-Type: application/json');
-        echo(json_encode($notas_array));
-
-	}
+/**
+* CreateNote ---> Notas Controller nueva
+*/
 	public function createNote($data) {
 		$currentUser = parent::authenticateUser();
 		$nota = new Nota();
@@ -110,7 +89,7 @@ class NotaRest extends BaseRest {
 		}
 	}
 
-	public function readNote($idNota) {
+	public function verNote($idNota) {
 		// find the Post object in the database
 		$nota = $this->notaMapper->getNoteByID($idNota);
 		if ($nota == NULL) {
@@ -123,7 +102,7 @@ class NotaRest extends BaseRest {
 			"titulo" => $nota->getTitulo(),
 			"contenido" => $nota->getContenido(),
 			"fecha" => $nota->getFecha(),
-			"usuario" => $nota->getAutor()
+			"fk_idUsuario" => $nota->getAutor()
 
 		);
 
@@ -131,6 +110,33 @@ class NotaRest extends BaseRest {
 		header('Content-Type: application/json');
 		echo(json_encode($post_array));
 	}
+
+	public function getNotesShared() {
+		$currentUser = parent::authenticateUser();
+		$notas = $this->notaMapper->getNoteByID($currentUser);
+		// json_encode Note objects.
+        // since Note objects have private fields, the PHP json_encode will not
+        // encode them, so we will create an intermediate array using getters and
+        // encode it finally
+        $notas_array = array();
+        foreach($notas as $nota) {
+            array_push($notas_array, array(
+							"idNota" => $nota->getIdNota(),
+							"titulo" => $nota->getTitulo(),
+							"contenido" => $nota->getContenido(),
+							"fecha" => $nota->getFecha(),
+							"fk_idUsuario" => $nota->getAutor()
+            ));
+        }
+
+				header($_SERVER['SERVER_PROTOCOL'].' 200 Ok');
+        header('Content-Type: application/json');
+        echo(json_encode($notas_array));
+
+	}
+
+
+
 
 	public function updateNote($idNota, $data) {
 		$currentUser = parent::authenticateUser();
@@ -189,7 +195,6 @@ class NotaRest extends BaseRest {
             header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
             echo("Note with id ".$idNota." not found");
         }
-
         try {
             foreach ($data as $usuario){
                 $this->notaMapper->compartir($nota,$usuario);
@@ -231,17 +236,10 @@ class NotaRest extends BaseRest {
 $notaRest = new NotaRest();
 URIDispatcher::getInstance()
 ->map("GET",	"/nota", array($notaRest,"getNotes"))
-->map("GET",	"/nota/$1", array($notaRest,"readNote"))
+->map("GET",	"/nota/$1", array($notaRest,"verNote"))
 ->map("POST", "/nota", array($notaRest,"createNote"))
 ->map("PUT",	"/nota/$1", array($notaRest,"updateNote"))
 ->map("DELETE", "/nota/$1", array($notaRest,"deleteNota"))
 ->map("GET","/nota/share", array($notaRest,"getNotesShared"))
 ->map("POST", "/nota/$1/share", array($notaRest,"shareNote"))
 ->map("DELETE","/nota/share/$1", array($notaRest,"deleteShareNote"));
-
-$notaRest = new NotaRest();
-URIDispatcher::getInstance()
-
-
-
-    //->map("POST", "/post/$1/comment", array($postRest,"createComment"))
