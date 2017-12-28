@@ -113,7 +113,7 @@ class NotaRest extends BaseRest {
 
 	public function getNotesShared() {
 		$currentUser = parent::authenticateUser();
-		$notas = $this->notaMapper->getNoteByID($currentUser);
+		$notas = $this->notaMapper->listShare($currentUser);
 		// json_encode Note objects.
         // since Note objects have private fields, the PHP json_encode will not
         // encode them, so we will create an intermediate array using getters and
@@ -211,7 +211,7 @@ class NotaRest extends BaseRest {
 
 		public function deleteShareNote($idNota) {
         $currentUser = parent::authenticateUser();
-        $nota = $this->noteMapper->findById($idNota);
+        $nota = $this->notaMapper->getNoteByID($idNota);
 
         if ($nota == NULL) {
             header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
@@ -239,7 +239,7 @@ URIDispatcher::getInstance()
 ->map("GET",	"/nota/$1", array($notaRest,"verNote"))
 ->map("POST", "/nota", array($notaRest,"createNote"))
 ->map("PUT",	"/nota/$1", array($notaRest,"updateNote"))
-->map("DELETE", "/nota/$1", array($notaRest,"deleteNota"))
+->map("DELETE", "/nota/$1", array($notaRest,"deleteNote"))
 ->map("GET","/nota/share", array($notaRest,"getNotesShared"))
 ->map("POST", "/nota/$1/share", array($notaRest,"shareNote"))
 ->map("DELETE","/nota/share/$1", array($notaRest,"deleteShareNote"));

@@ -114,7 +114,7 @@ class NotaMapper {
 			$stmt = $this->db->prepare("DELETE from compartida WHERE fk_idNota=?");
 			$stmt->execute(array($idNota));
 	}
-	
+
 	/*compartir
 	* Permite compartir una nota con un usuario
 	* Es necesario que la nota exista y ser el propietario para poder compartirla
