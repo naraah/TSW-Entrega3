@@ -5,6 +5,7 @@ array(
 	"Sing in" => "Registrar",
 	"Delete" => "Borrar",
 	"Login" => "Entrar",
+	"Register" => "Registro",
   "Accept" => "Aceptar",
 	"Alias" => "Alias",
 	"Password" => "Contraseña",

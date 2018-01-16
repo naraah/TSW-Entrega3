@@ -2,6 +2,8 @@ I18n.translations = {
   'Sing in':'Registrar',
 	'Delete':'Borrar',
 	'Login':'Entrar',
+  'Registrer':'Registro',
+  'New user in Fasvery':'Nuevo usuario en Fasvery',
   'Accept':'Aceptar',
 	'Alias':'Alias',
 	'Password':'Contraseña',

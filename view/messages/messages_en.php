@@ -7,6 +7,7 @@ $i18n_messages = array(
   "Sing in" => "Sing in",
 	"Delete" => "Delete",
 	"Login" => "Login",
+  "Registrer" => "Registrer",
   "Accept" => "Accept",
 	"Alias" => "Alias",
 	"Password" => "Password",

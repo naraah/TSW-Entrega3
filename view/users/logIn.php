@@ -19,6 +19,7 @@
 								<input class="btnSubmit" type="submit" value="<?= i18n("Accept")?>">
 								<input class="btnReset" type="reset" value="<?= i18n("Delete")?>">
 							</div>
+        			<a href="index.php?controller=Usuario&amp;action=register"> <input type="button" class="btnSubmit" type="submit" value="<?= i18n("Register")?>" /> </a>
 					</fieldset>
 				</form>
 				</div>
